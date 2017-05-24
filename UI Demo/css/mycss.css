@@ -1,0 +1,7 @@
+header{background: #BBFFEE}
+header>h1,nav{text-align: center}
+li a{text-decoration: none}
+nav ul li{display: inline-block; width: 100px; background: #DDDDDD}
+footer{background: silver; text-align: center; height: 2em; font-size: small}
+#mydrag{background: gray; width: 100px; height: 100px; border: 1px solid #FFFFFF; display: inline-block}
+#mydrop{background: olive; width: 200px; height: 200px; border: 1px solid #FFFFFF; display: inline-block}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>vue.js Demo</title>
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+
+<body>
+<a name="top"></a>
+
+<header>
+    <hgroup>
+        <h1>vue.js Demo</h1>
+        <h3>
+            examples from
+            <a href="https://cn.vuejs.org/" target="_blank">
+            <cite>vue.js官网</cite>
+            </a>
+        </h3>
+    </hgroup>
+
+
+</header>
+
+<section>
+<div id="app-1">
+    <h2>Hello</h2>
+    Please input your name: <input v-model="name" type="text"></input><br/>
+    Click to reverse your name: <button @click="reverseName">Reverse</button>
+    <p>Hello {{name}}!</p>
+</div>
+</section>
+
+<section>
+<div id="app-2">
+    <h2>Navigation switching</h2>
+    <nav>
+        <ul>
+            <li><router-link to="/home">Home</router-link></li>
+            <li><router-link to="/news">News</router-link></li>
+            <li><router-link to="/sports">Sports</router-link></li>
+            <li><router-link to="/weather">Weather</router-link></li>
+        </ul>
+    </nav>
+    <h1>Welcome!</h1>
+    <router-view></router-view>
+</div>
+</section>
+
+<section>
+<div id="app-3">
+    <h2>Component System</h2>
+    <input type="text" placeholder="Add new todo-item"></input>
+    <ol>
+        <todo-item
+            v-for="item in itemList"
+            :key="item.text"
+            v-bind:todo="item"
+        ></todo-item>
+    </ol>
+</div>
+</section>
+
+<section>
+<div id="app-4">
+    <h2>Computed Attributes</h2>
+    <p>Original message: {{message}}</p>
+    <p>Reversed message: {{reversedMessage}}</p>
+    <p>First Name: <input type="text" v-model="firstName"></input></p>
+    <p>Last Name: <input type="text" v-model="lastName"></input></p>
+    <p>Full Name: {{fullName}}</p>
+</div>
+</section>
+
+<section>
+ <div id="app-5">
+    <h2>Watch Example</h2>
+    <p>
+    Ask a yes/no question:
+        <input v-model="question"></input>
+    </p>
+    <p>Answer: {{ answer }}</p>
+</div>
+</section>
+
+<section>
+<div id="app-6">
+    <h2>Todo ListCounter</h2>
+    <input
+        v-model="newTodoText"
+        @keyup.enter="addNewTodo"
+        placeholder="Add a todo"
+    ></input>
+    <ul>
+        <li
+        is="todo-item"
+        v-for="(todo,index) in todos"
+        :title="todo"
+        @remove="todos.splice(index,1)"></li>
+    </ul>
+</div>
+</section>
+
+<section>
+<div id="app-7">
+    <h2>Counter Example</h2>
+    <p>Total: {{total}}</p>
+    <button-counter @increment="incrementTotal"></button-counter>
+    <button-counter @increment="incrementTotal"></button-counter>
+</div>
+</section>
+
+<section>
+<div id="app-8">
+    <h2>Transition of Elements</h2>
+    <button @click="show=!show">Toggle</button>
+    <transition name="fade">
+        <span v-if="show">hello</span>
+    </transition>
+    <br/>
+    Change Button docState:
+    <input type="text" v-model.lazy="docState" list="docStateList"></input>
+    <datalist id="docStateList">
+        <option v-for="state in docStates" :value="state"></option>
+    </datalist>
+    <transition name="fade" mode="out-in">
+        <button :key="docState">{{buttonMsg}}</button>
+    </transition>
+</div>
+</section>
+
+<section>
+ <div id="app-9">
+    <h2>Tansition of Components</h2>
+    <input type="radio" name="myradio" v-model="view" value="v-a">A</input>
+    <input type="radio" name="myradio" v-model="view" value="v-b">B</input>
+    <transition name="component-fade" mode="out-in">
+        <component v-bind:is="view"></component>
+    </transition>
+</div>
+</section>
+
+<section>
+<div id="app-10">
+    <h2>Transition Group</h2>
+    <button @click="add">Add</button>
+    <button @click="remove">Remove</button>
+    <button @click="shuffle">Shuffle</button>
+    <transition-group name="list" tag="p">
+        <span v-for="item in items" :key="item" class="list-item">
+            {{item}}
+        </span>
+    </transition-group>
+</div>
+</section>
+
+<section>
+<div id="sudoku-demo" class="sudoku">
+    <h2>Lazy Sudoku Demo</h2>
+    <p>Keep hitting the shuffle button until you win.</p>
+    <button @click="shuffle">Shuffle</button>
+    <transition-group name="sudoku-cell" tag="div" class="sudoku-container">
+        <div v-for="cell in cells" :key="cell.id" class="sudoku-cell">
+            {{cell.number}}
+        </div>
+    </transition-group>
+</div>
+</section>
+
+<section>
+<div id="staggered-list-demo">
+    <h2>Staggered List Demo</h2>
+    <input placeholder="query in the list" v-model="query"></input>
+    <transition-group
+        name="staggered-fade"
+        tag="ul"
+        :css="false"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave"
+    >
+        <li
+            v-for="(item, index) in computedList"
+            :key="item.msg"
+            :data-index="index"
+        >
+            {{item.msg}}
+        </li>
+    </transition-group>
+</div>
+</section>
+
+<section>
+<div id="dynamic-fade-demo">
+    Fade In: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration"></input>
+    Fade Out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration"></input>
+    <transition
+        :css="false"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+    <button @click="stop = true">Stop it!</button>
+</div>
+</section>
+
+
+
+<a href="#top">
+    <span id="scroll">
+        Scroll to Top
+    </span>
+</a>
+
+<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="https://unpkg.com/color-js@1.0.3/color.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

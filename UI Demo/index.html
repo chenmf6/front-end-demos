@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> UI Demo</title>
+    <link rel="stylesheet" href="css/mycss.css">
+</head>
+
+<body>
+    <header>
+        <h1>UI Demo</h1>
+        <nav>
+        <ul>
+            <li><a href="#figure">figure</a></li>
+            <li><a href="#table">table</a></li>
+            <li><a href="#list">list</a></li>
+            <li><a href="#form">form</a></li>
+            <li><a href="#canvas">canvas</a></li>
+            <li><a href="#dragging">dragging</a></li>
+        </ul>
+    </nav>
+    </header>
+
+
+
+    <section>
+        <header>
+            <h2>Figure</h2>
+        </header>
+        <figure>
+            <img src="images/img1.jpg" alt="img1" width="100px" height="80px">
+            <img src="images/img2.jpg" alt="img2" width="100px" height="80px">
+            <figcaption>figure caption</figcaption>
+        </figure>
+    </section>
+
+    <section id="table">
+    <header>
+        <h2>Table</h2>
+    </header>
+    <table>
+    <thead>
+        <caption>A table</caption>
+        <tr>
+            <td></td>
+            <th scope="col">name</th>
+            <th scope="col">No.</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td></td>
+            <th scope="col">Name</th>
+            <th scope="col">No.</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <th scope="row">First</th>
+            <td>John</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <th scope="row">Second</th>
+            <td>Jane</td>
+            <td>111</td>
+        </tr>
+    </tbody>
+    </table>
+    </section>
+
+    <section id="list">
+    <header>
+        <h2>Lists</h2>
+    </header>
+
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+
+    <ol>
+        <li>first</li>
+        <li>second</li>
+    </ol>
+
+    <details>
+        <summary>Summary</summary>
+        <dl>
+        <dt>term1</dt>
+        <dd>description1</dd>
+        <dt>term2</dt>
+        <dd>description2</dd>
+    </dl>
+    </details>
+
+    </section>
+
+    <section id="form">
+        <header>
+            <h2>Form</h2>
+        </header>
+
+    <form name="myform">
+    <fieldset>
+        <legend>常用控件</legend>
+        <label for="mytext">请输入文本：</label>
+        <input type="text" name="mytext" placeholder="plachholder" readonly="readonly"></input>
+        <br/>
+        <textarea name="mytextarea" rows="10" cols="10" wrap="off">多行文本</textarea><br/>
+        <label for="mycheckbox">复选框</label>
+        <input type="checkbox" name="mycheckbox">选项1</input>
+        <input type="checkbox" name="mycheckbox">选项2</input>
+        <input type="checkbox" name="mycheckbox">选项3</input>
+        <br/>
+        <label for="myradio">单选框</label>
+        <input type="radio" name="myradio">选项1</input>
+        <input type="radio" name="myradio">选项2</input>
+        <input type="radio" name="myradio">选项3</input>
+        <br/>
+    </fieldset>
+
+    <fieldset>
+        <legend>列表框和组合框</legend>
+        下拉搜索框: <input type="search" name="googlesearch" list="mylist"><br/>
+        <datalist id="mylist">
+            <option label="item1" value="search1"></option>
+            <option label="item2" value="search2"></option>
+            <option>item3</option>
+        </datalist>
+        <br/>
+        列表框：<select name="myselect" size="10" multiple="multiple">
+        <optgroup label="group1">
+            <option value="v1">选项一</option>
+            <option>选项二</option>
+            <option>选项三</option>
+        </optgroup>
+        <optgroup label="group2">
+            <option value="v1">选项1</option>
+            <option>选项2</option>
+            <option>选项3</option>
+        </optgroup>
+        </select>
+        <br/>
+    </fieldset>
+
+    <fieldset>
+        <legend>HTML5新控件</legend>
+        color: <input type="color" name="favcolor">
+        date:  <input type="date" name="bday"><br/>
+        file: <input type="file" name="myfile" multiple="multiple"></input><br/>
+        E-mail:  <input type="email" name="email"><br/>
+        range：<input type="range" name="points" min="1" max="10"><br/>
+        <label>
+            进度条：
+            <progress value="80" max="100"></progress>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>按钮</legend>
+        图片作为按钮： <input type="image" name="imagebutton" src="images/img1.jpg" width="80px" height="50px"></input>
+        带图片的按钮：
+         <button type="submit" name="mysubmit" value="SUBMIT">
+            <image src="images/img2.jpg" width="80px" height="50px"></image>
+            <span>按钮</span>
+        </button><br/>
+        reset：<input type="reset" name="myset"></input><br/>
+    </fieldset>
+    </form>
+    </section>
+
+    <section id="canvas">
+        <header>
+            <h2>Canvas</h2>
+        </header>
+        <canvas id="mycanvas" width="200px" height="150px"></canvas>
+    </section>
+
+    <section id="dragging">
+        <header>
+            <h1>Dragging</h1>
+        </header>
+        <div id="mydrag" draggable="true">
+            Drag me!
+        </div>
+        <div id="mydrop">
+            Drop here!
+            <ol/>
+        </div>
+
+    </section>
+
+    <footer>
+        <address>
+            Edited By Minfei Chen
+        </address>
+    </footer>
+
+    <script src="js/myscript.js"></script>
+</body>
+</html>

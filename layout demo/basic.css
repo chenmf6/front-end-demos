@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+}
+.container{
+  position: relative;
+}
+nav{
+  position: absolute;
+  left: 0px;
+  width: 200px;
+}
+section{
+  margin-left: 200px;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+}
+body{
+  margin-bottom: 120px;
+}
+.elem{
+  border: 2px solid green;
+}
+.content{
+  max-width: 600px;
+  overflow: auto;
+  zoom: 1;
+  margin: 1em auto;
+}
+img{
+  float: right;
+  margin: 0 0 1em 1em;
+}
